@@ -1,1 +1,3 @@
-# posts
+# Posts
+
+My posts about programming.
