@@ -54,6 +54,6 @@ But we only have a few things to do with code and we do it again and again:
 - evaluating a condition
 - ...
 
-We also spend of time iterating over collections of data. What if we could just update every element of the collection in a single computation unit of time without any iteration ? In that case we need to accept that time and space are just beautiful abstractions, not reality.
+We also spend a lot of time iterating over collections of data. What if we could just update every element of the collection in a single computational unit of time without any iteration ? In that case we need to accept that time and space are just beautiful abstractions, not reality.
 
 But hey, I'm just a programmer, not a physicist.
