@@ -1,12 +1,8 @@
 # Simplicity in code
 
-It is always difficult to define a concept that is generally used in a subjective way, meaning different things.
+It is always difficult to define a concept that is generally used in a subjective way, meaning different things. When we say that something is simple, it could have positive or negative connotations depending on the context and the intention.
 
-When we say something is simple, it could have positive or negative connotations depending on the context and the intention.
-
-Regarding programming, simplicity could be the result of breaking down complex needs into simple things so that we can compose without too much hustle.
-
-In programming, saying that "something is simple" often means that it is easy to understand and use.
+Regarding programming, simplicity could be the result of breaking down complex needs into simple things so that we can compose without too much hustle. Saying that "something is simple" often means that it is easy to understand and use.
 
 ## The love and death of object oriented programming
 
@@ -24,19 +20,19 @@ Another quality is being able to translate complex business ideas into simple/te
 
 ## A few rules
 
-Simplicity is likely to be achieved with a combination of ideas from various paradigms, including OOP and FP, where data and functions are first-class passengers, while classes are used only to guarantee [invariants](https://en.wikipedia.org/wiki/Invariant_(mathematics)#Invariants_in_computer_science).
+Simplicity is likely to be achieved with a combination of ideas from various paradigms, including OOP and FP, where data and functions are first-class citizens, while classes are used mainly to guarantee [invariants](https://en.wikipedia.org/wiki/Invariant_(mathematics)#Invariants_in_computer_science).
 
 - Separate data from code
-- Use immutable data whenever possible. It may be prohibitive in data science, but most applications can take advantage of it.
-- Use generic data structures separate from the schema. In other words, if a hash map is all what you need, use it.
+- Use immutable data whenever possible. It may be inefficient in data science, but most applications can take advantage of it
+- Use generic data structures. If a hash map is all what you need, use it
 - Use data as a first class citizen
-- Use json in native form without transformations / proxies / objects wrapping around...
+- Use json as it is, in native form without transformations / proxies...
 - Say things in a more declarative way
 - Do not share more than you’d like to
 
 ## Where is my function?
 
-I am not an expert FP programmer, just an _aficionado_, but given the amount of work that OOP code need and the cost per bug, I'd say that classes are not efficient tools by design. I think with FP the cost per bug can be reduced at a price: the granularity of the system can be overwhelming. How do we write our functions and organise them is key.
+I am not an expert FP programmer, just an _aficionado_, but given the amount of work that OOP code need and the cost per bug, I'd say that classes are not efficient tools by design. With FP the cost per bug can be reduced at a price: the granularity of the system can be overwhelming. How do we write our functions and organise them is key.
 
 ## Conclusion
 
@@ -49,10 +45,10 @@ Let me digress here. We have a very few things to do with code, and we do it aga
 - looping over a collection
 - generate a side effect
 
-As stated in the great book "The case against reality" by Donald Hoffman, _evolution optimises for fitness, not for truth_. Maybe programmers also optimise for something that is just an interface, not for discovering the truth underneath the abstraction. We depend heavily on space (computational structures repetition) and time (for loops). 
+As stated in the great book "The case against reality" by Donald Hoffman, _evolution optimises for fitness, not for truth_. Maybe programmers also optimise for something that is just an interface, not for discovering the truth underneath the abstraction. We depend heavily on space (computational structures repetition) and time (loops/recursion). 
 
 I think true simplicity will come whenever we get rid of those (space and time). There is A LOT of repetition in every code base.  We are always using the same code-phrases to achieve the same results like homogeneous transformations of inputs into outputs or performing side-effects. 
 
-We spend a lot of time iterating over collections of data. What if we could just update every element of the collection in a single computational unit of time without any iteration at all? In that case we would need to accept that space and time are just beautiful abstractions, not reality.
+We spend a lot of time iterating over collections of data. What if we could just update every element of the collection in a single computational unit of time without any iteration at all? In that case we would accept that space and time are indeed beautiful abstractions, not reality.
 
 But hey, I'm just a programmer, not a physicist.
