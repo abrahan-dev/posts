@@ -10,15 +10,17 @@ In programming, saying that "something is simple" often means that it is easy to
 
 ## The love and death of object oriented programming
 
-I believe that OOP is a paradigm that does not help in the crusade to divide and conquer complexity, instead it feeds up the agglomeration of ideas and concepts into low quality abstractions.
+I believe that OOP is a paradigm that does not bring a lot of help in the crusade to divide and conquer complexity, instead it feeds up the agglomeration of ideas and concepts into (very often) low quality abstractions.
 
-Because we have built OOP, we need design patterns. Maybe OOP makes simple things complex, while FP (functional programming) makes complex things simple. Also FP makes micro-things harder and macro things easier while OOP makes micro-things easier and macro things harder. If we use simpler blocks that relate more naturally, then we do not need design patterns.
+Because we have built OOP, we need design patterns. Maybe OOP tends to make simple things complex, while FP (functional programming) tends to make complex things simple. If we use simpler blocks that relate more naturally, then we do not really need design patterns.
+
+OOP is still the best way I know to tackle the problem. But It is enriching to know other ways and it might not be the best.
 
 ## A good programmer
 
-A good programmer can have many qualities, but an indispensable one is being able to make good abstractions. After many years developing OOP I think that OOP does not help _per se_. 
+A good programmer can have many qualities, but an indispensable one is being able to make good abstractions. After many years developing OOP I think that OOP does not help _per se_.
 
-Another quality is being able to translate complex business ideas into simple code.
+Another quality is being able to translate complex business ideas into simple/testable code. Easy to say.
 
 ## A few rules
 
@@ -34,26 +36,23 @@ Simplicity is likely to be achieved with a combination of ideas from various par
 
 ## Where is my function?
 
-I am not an expert FP programmer, just an _aficionado_, but given the amount of work that OOP code need and the cost per bug, I'd say that classes are not efficient tools.
-
-I think with FP the cost per bug can be reduced at a price: the granularity of the system can be overwhelming. 
-
-How do we write our functions and organise them is key.
+I am not an expert FP programmer, just an _aficionado_, but given the amount of work that OOP code need and the cost per bug, I'd say that classes are not efficient tools by design. I think with FP the cost per bug can be reduced at a price: the granularity of the system can be overwhelming. How do we write our functions and organise them is key.
 
 ## Conclusion
 
-This is about changing our mental models as programmers to accomodate simplicity. Think first data and functions, then classes for invariants.
+How do we update our mental models to accomodate simplicity?: Think first data and functions, then classes for invariants.
 
-As stated in the great book "The case against reality" by Donald Hoffman, evolution optimises for fitness, not for truth. Maybe programmers also optimise for something that is just an interface, not for discovering the truth underneath the abstraction. We depend heavily on space (computational types repetition) and time (for loops). 
-
-I think true simplicity will come whenever we get rid of those. There is A LOT of repetition in every code base.  We are always using the same phrases (computational types) to achieve the same things (homogeneous transformations of inputs into outputs, performing side-effects...). 
-
-But we only have a few things to do with code and we do it again and again:
+Let me digress here. We have a very few things to do with code, and we do it again and again:
 - assigning a variable
 - calculating something
 - evaluating a condition
-- ...
+- looping over a collection
+- generate a side effect
 
-We also spend a lot of time iterating over collections of data. What if we could just update every element of the collection in a single computational unit of time without any iteration ? In that case we need to accept that time and space are just beautiful abstractions, not reality.
+As stated in the great book "The case against reality" by Donald Hoffman, _evolution optimises for fitness, not for truth_. Maybe programmers also optimise for something that is just an interface, not for discovering the truth underneath the abstraction. We depend heavily on space (computational structures repetition) and time (for loops). 
+
+I think true simplicity will come whenever we get rid of those (space and time). There is A LOT of repetition in every code base.  We are always using the same code-phrases to achieve the same results like homogeneous transformations of inputs into outputs or performing side-effects. 
+
+We spend a lot of time iterating over collections of data. What if we could just update every element of the collection in a single computational unit of time without any iteration at all? In that case we would need to accept that space and time are just beautiful abstractions, not reality.
 
 But hey, I'm just a programmer, not a physicist.
