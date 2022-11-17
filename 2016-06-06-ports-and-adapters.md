@@ -1,3 +1,5 @@
+# Ports and Adapters
+
 > Disclaimer: Most of this post are ideas translated / adapted by me during the study. I do not give myself any credit for it, obviously. Hexagonal architecture is a concept developed by Alistair Cockburn. It is necessary to read and reread the advices of Robert C. Martin (Uncle Bob) to understand this ecosystem and the good practices of object-oriented programming.
 
 One of the reasons why a software architecture is necessary is that frameworks as Laravel or Symfony promote a style of code that does not meet the needs of large applications.

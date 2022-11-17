@@ -1,3 +1,5 @@
+# Thoughts on DDD
+
 > At the end, everything is about the customer's happiness and the programmer's happiness.
 
 When I said that at the office I didn't know that I was promoting Domain Driven Design.
