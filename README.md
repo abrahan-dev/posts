@@ -1,6 +1,6 @@
 # Posts
 
-My posts about programming.
+About programming.
 
 | Date   |      Title      |
 |----------|:-------------:|
