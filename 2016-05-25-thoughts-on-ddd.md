@@ -22,7 +22,7 @@ When applications began to grow exponentially and the pioneers of this professio
 
 ##### Let's talk
 
-Apparently there was a chasm between the teams developing the software and those carrying out the "main" business activity (what everyone would identify as the source of benefits).
+Apparently there was a chasm between the teams developing the software and those carrying out the "main" business activity (what everyone would identify as the source of profit).
 
 And the software then, what is it? What DDD promotes in teams is to develop a common language, used by domain experts and developers as well. This means many things, for example your creepy variable $arrayB that only you barely know what it is will become $bookings. Your functional tests could become a contract, or even a source of documentation which is meaningful for both domain experts and software designers. In order to achieve that, many hours of common conversation will have taken place in the meeting room.
 
