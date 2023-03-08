@@ -180,3 +180,26 @@ export default function two_crystal_balls(breaks: boolean[]): number {
     return -1;
 }
 ```
+
+## Sort: Bubble sort
+
+With bubble sort, on each iteration, the larger element is pushed to the end of
+the array.
+
+O(n^2)
+
+A sorted array must meet the condition: any _Xi <= Xi+1_
+
+```typescript
+export default function bubble_sort(arr: number[]): void {
+    for (let i = 0; i < arr.length; ++i) {
+        for (let j = 0; j < arr.length - 1 - i; ++j) {
+            if (arr[j] > arr[j + 1]) {
+                const tmp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = tmp;
+            }
+        }
+    }
+}
+```
