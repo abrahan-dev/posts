@@ -22,7 +22,7 @@ When applications began to grow exponentially and the pioneers of this professio
 
 ##### Let's talk
 
-Apparently there was a chasm between the teams developing the software and those carrying out the "main" business activity (what everyone would identify as the source of benefits).
+Apparently there was a chasm between the teams developing the software and those carrying out the "main" business activity (what everyone would identify as the source of profit).
 
 And the software then, what is it? What DDD promotes in teams is to develop a common language, used by domain experts and developers as well. This means many things, for example your creepy variable $arrayB that only you barely know what it is will become $bookings. Your functional tests could become a contract, or even a source of documentation which is meaningful for both domain experts and software designers. In order to achieve that, many hours of common conversation will have taken place in the meeting room.
 
@@ -30,7 +30,9 @@ When everyone shares the same concepts, the same domain semantics: we have reach
 
 ##### What is all about
 
-It is about modeling your software following an hermeneutics of domain. Which means that once we know the world that our software must represent, solving it using DDD, provides us with a framework in which to work with guarantees that this world will not become immediately incomprehensible, monolithic and impossible to verify: untested spaghetti code. It is about creating complex systems based on high quality software.
+It is about modeling your software following an hermeneutic of domain. Which means that once we know the world that our software must represent, solving it using DDD, provides us with a framework in which to work with a guarantee: this world will not become immediately incomprehensible, monolithic and impossible to verify (untested spaghetti code). 
+
+It is about creating complex systems based on high quality software.
 
 > DDD is not architecture.
 
