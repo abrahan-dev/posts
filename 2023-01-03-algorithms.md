@@ -203,3 +203,27 @@ export default function bubble_sort(arr: number[]): void {
     }
 }
 ```
+
+## Data structure: linked list
+
+A simple array cannot:
+- Delete an element
+- Insert new elements
+- Grow
+
+This is why in here `const a = []`, "a" is not an array as we can push, pop, etc.
+
+Complexity of deletion or insertion is constant O(1) given the node, otherwise 
+we have to add the time of the traversal of the list.
+
+```typescript
+interface LinkedList<T> {
+    get length(): number;
+    insertAt(item: T, index: number): void;
+    remove(item: T): T | undefined;
+    removeAt(index: number): T | undefined;
+    append(item: T): void;
+    prepend(item: T): void;
+    get(index: number): T | undefined;
+}
+```
