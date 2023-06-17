@@ -1,4 +1,4 @@
-# Algorithms WIP
+# Algorithms (WIP)
 
 ## Big O notation
 
@@ -204,7 +204,7 @@ export default function bubble_sort(arr: number[]): void {
 }
 ```
 
-## Data structure: linked list
+## Sort: Linked list
 
 A simple array cannot:
 - Delete an element
@@ -228,7 +228,7 @@ interface LinkedList<T> {
 }
 ```
 
-### Data structure / Algorithm: Queue
+## Sort: Queue
 
 A FIFO linked list. We pop elements from the head, and we push elements to the tail.
 Those are constant time operations O(1).
@@ -267,7 +267,7 @@ export default class Queue<T> {
         this.length++;
     }
 
-    deque(): T | undefined {
+    dequeue(): T | undefined {
         if (!this.head) {
             return undefined;
         }
@@ -281,6 +281,60 @@ export default class Queue<T> {
 
     peek(): T | undefined {
         return this.head?.value
+    }
+}
+```
+
+## Sort: Stack
+
+Kind of a queue but in reverse, the head is the element to be added or removed.
+
+Those are constant time operations O(1).
+
+```typescript
+type Node<T> = {
+    value: T,
+    previous?: Node<T>
+}
+
+export default class Stack<T> {
+    public length: number;
+    private head?: Node<T>;
+
+    constructor() {
+        this.head = undefined;
+        this.length = 0;
+    }
+
+    push(item: T): void {
+        const node: Node<T> = {value: item};
+
+        this.length++;
+
+        if(!this.head) {
+            this.head = node;
+            return;
+        }
+
+        node.previous = this.head;
+        this.head = node;
+    }
+
+    pop(): T | undefined {
+        this.length = Math.max(0, this.length - 1);
+        const head = this.head;
+
+        if(this.length === 0) {
+            this.head = undefined;
+            return head?.value;
+        }
+
+        this.head = head?.previous;
+        return head?.value;
+    }
+
+    peek(): T | undefined {
+        return this.head?.value;
     }
 }
 ```
