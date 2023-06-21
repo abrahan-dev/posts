@@ -338,3 +338,18 @@ export default class Stack<T> {
     }
 }
 ```
+
+## ArrayList vs LinkedList
+
+ArrayLists are good when they behave like a stack: O(1)
+LinkedLists are good when they behave like a queue: O(1)
+
+But an ArrayList does not perform well as a queue because you need to move all the items when enqueueing or dequeueing: O(n).
+
+ArrayList have direct access to items based on indexes which is great, but you cannot efficiently remove items from the front. LinkedLists are not good to get a random item. So it depends on each case.
+
+## ArrayBuffer
+
+This is kind of an array list but the head and the tail are index-based so everything on the left of the head is null and everything on the right of the tail is null within the ArrayBuffer.
+
+RingBuffers can have a tail that is before the head as if the array were circular with no end or beginning but keeping a given size.
