@@ -16,8 +16,7 @@ Writing a book and writing a program could differ very little indeed, in both ca
 
 I think after 10 years programming I do not know what kind of code I prefer because my taste is not yet fully formed. I exposed myself a lot to other people's opinions and advice: Twitter and LinkedIn are full of programming _vedettes_ telling what you should or should not do in order to reach the nirvana of programming. The amount of bullshit in this industry is so big that sometimes you just want to stop programming, and I get it. There is no truth in programming and if you ever look for it, you are going to be frustrated. Also, I could easily reduce my 10 years experience to maybe 4 or 5. We programmers spend a lot of time resolving business problems, we are paid to do that most of the time. 
 
-We are not paid to polish our tools or to be better at some soft skill or to master some new framework. Something we do not fully get is that programmers are  as important as industrial revolution workers were 200 years ago. We truly are ants building a new big step in human civilization but. I do not think that any of that is going to last. We are creating the soil on which the 
-new plants are growing.
+We are not paid to polish our tools or to be better at some soft skill or to master some new framework. Something we do not fully get is that programmers are  as important as industrial revolution workers were 200 years ago. We truly are ants building a new big step in human civilization but I do not think that any of that is going to last. We are creating the soil on which the new plants are growing.
 
 I feel now that my profession is much less cool than I thought it was when I began.
 
