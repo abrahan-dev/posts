@@ -353,3 +353,5 @@ ArrayList have direct access to items based on indexes which is great, but you c
 This is kind of an array list but the head and the tail are index-based so everything on the left of the head is null and everything on the right of the tail is null within the ArrayBuffer.
 
 RingBuffers can have a tail that is before the head as if the array were circular with no end or beginning but keeping a given size.
+
+## 
