@@ -348,10 +348,33 @@ But an ArrayList does not perform well as a queue because you need to move all t
 
 ArrayList have direct access to items based on indexes which is great, but you cannot efficiently remove items from the front. LinkedLists are not good to get a random item. So it depends on each case.
 
+Javascript arrays are ArrayLists.
+
 ## ArrayBuffer
 
 This is kind of an array list but the head and the tail are index-based so everything on the left of the head is null and everything on the right of the tail is null within the ArrayBuffer.
 
 RingBuffers can have a tail that is before the head as if the array were circular with no end or beginning but keeping a given size.
 
-## 
+## Recursion
+
+That is when a function calls itself until it reaches a base case.
+
+So we first need to decide what is the base case, otherwise we will have an infinite function call.
+
+```typescript
+function sum(n: number): number {
+    if (n === 1) {
+        return 1;
+    }
+
+    return n + sum(n - 1);
+}
+```
+This is the stack trace calling this recursive function with 3 as argument:
+
+| Return address | Return value | Arguments |
+| -------------  | ------------- | ---------|
+| sum(3)         | 3 + *3*       | 3        |
+| sum(2)         | 2 + *1*       | 2        |
+| sum(1)         | *1*           | 1        |
