@@ -2,6 +2,7 @@
 
 | Date       |                         Title                          |
 |------------|:------------------------------------------------------:|
+| 2023-01-03 |       [Basic Node.js](2023-07-10-node-js.md)                 |
 | 2023-01-03 |       [Algorithms WIP](2023-01-03-algorithms.md)       |
 | 2022-11-10 | [Simplicity in code](2022-11-10-simplicity-in-code.md) |
 | 2022-11-04 | [10 years programming](2022-11-04-ten-years-programming.md) |
