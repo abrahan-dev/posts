@@ -2,8 +2,9 @@
 
 | Date       |                         Title                          |
 |------------|:------------------------------------------------------:|
-| 2023-07-11 |       [Node.js part 2](2023-07-11-node-js-2.md)         |
-| 2023-07-10 |       [Node.js part 1](2023-07-10-node-js-1.md)         |
+| 2023-07-11 |       [Node.js part 3](2023-07-14-node-js-3.md)        |
+| 2023-07-11 |       [Node.js part 2](2023-07-11-node-js-2.md)        |
+| 2023-07-10 |       [Node.js part 1](2023-07-10-node-js-1.md)        |
 | 2023-01-03 |       [Algorithms WIP](2023-01-03-algorithms.md)       |
 | 2022-11-10 | [Simplicity in code](2022-11-10-simplicity-in-code.md) |
 | 2022-11-04 | [10 years programming](2022-11-04-ten-years-programming.md) |
