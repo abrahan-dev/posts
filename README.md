@@ -2,7 +2,8 @@
 
 | Date       |                         Title                          |
 |------------|:------------------------------------------------------:|
-| 2023-07-11 |       [Node.js part 3](2023-07-14-node-js-3.md)        |
+| 2023-07-28 |       [Backend notes](2023-07-28-backend-notes.md)        |
+| 2023-07-14 |       [Node.js part 3](2023-07-14-node-js-3.md)        |
 | 2023-07-11 |       [Node.js part 2](2023-07-11-node-js-2.md)        |
 | 2023-07-10 |       [Node.js part 1](2023-07-10-node-js-1.md)        |
 | 2023-01-03 |       [Algorithms WIP](2023-01-03-algorithms.md)       |
