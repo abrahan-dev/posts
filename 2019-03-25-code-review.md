@@ -11,11 +11,11 @@ So what we look for in others code... it depends.
 
 Anti-patterns in code review:
 
--   Nitpicking (formatting, whitespaces, method length...).
--   Design changes when the code works.
--   Inconsistent feedback (criteria change).
--   The ghost reviewer (reviewer never shows).
--   Ping-pong reviews (first review something, second review something else...).
+- Nitpicking (formatting, whitespace, method length...).
+- Design changes when the code works.
+- Inconsistent feedback (criteria change).
+- The ghost reviewer (reviewer never shows).
+- Ping-pong reviews (first review something, second review something else...).
 
 From my personal experience, I suffered a lot all of them, it bothers me specially the inconsistent feedback and ping-pong reviews. Both depend greatly on the reviewer culture and state of mind.
 
@@ -25,25 +25,25 @@ I started making a great effort to agree upon the code with the team before actu
 
 Why?
 
--   Find bugs.
--   Share knowledge.
--   Check code is understandable.
--   Ensure code does what it's supposed to do (tests).
--   Evolve the code in a particular direction.
+- Find bugs.
+- Share knowledge.
+- Check code is understandable.
+- Ensure code does what it's supposed to do (tests).
+- Evolve the code in a particular direction.
 
 When to do the code review?
 
--   During implementation.
--   When is ready to merge.
--   After being merged.
+- During implementation.
+- When is ready to merge.
+- After being merged.
 
 Me personally do not ask for reviews after being merged. I use to request a pull and the code review is made before merging. Lately I am finding useful to ask for micro reviews during development (specially if there is a gate keeper, I probe his or her opinion during the process). It saves a lot of time during the code review, especially concerning all the opinionated stuff.
 
 When is the review complete.
 
--   When everyone agrees.
--   When a gate keeper agrees.
--   When all comments are addressed.
+- When everyone agrees.
+- When a gate keeper agrees.
+- When all comments are addressed.
 
 I am usually working with a gate keeper so when the pull requests have a certain degree of complexity, everyone expects gate keeper's approve to move on. Sometimes I write a comment and it is not even responded. I usually find that a great thoughtlessness.
 
@@ -53,42 +53,42 @@ Who says It is done
 
 Where
 
--   Doing code review by pair programming.
--   Remote screen sharing.
--   On the IDE, checking out a commit or a branch.
+- Doing code review by pair programming.
+- Remote screen sharing.
+- On the IDE, checking out a commit or a branch.
 
 Most of the cases for me it is on the IDE, checking out branches.
 
 Things to look for:
 
--   Fit overall architecture.
--   Solid, DDD, Design patterns.
--   New code follows teams current practices.
--   Code is in the right place.
--   Code reuse.
--   Over-engineering.
--   Readable code and tests.
--   Testing the right things.
--   Exception error messages.
--   Subtle bugs.
--   Security.
--   Regulator requirements.
--   Performance.
--   Documentation is updated.
--   Spelling, punctuation and grammar.
+- Fit overall architecture.
+- Solid, DDD, Design patterns.
+- New code follows teams current practices.
+- Code is in the right place.
+- Code reuse.
+- Over-engineering.
+- Readable code and tests.
+- Testing the right things.
+- Exception error messages.
+- Subtle bugs.
+- Security.
+- Regulator requirements.
+- Performance.
+- Documentation is updated.
+- Spelling, punctuation and grammar.
 
 How?
 
--   Automated everything you can.
--   Submit small amounts of code.
--   Describe the code review (i choose this and this because ....).
--   Respond as soon as possible (the coder is multitasking or blocked).
--   The reviewer has a list of problems to check.
--   Put the comments in context.
--   Be constructive.
--   Be specific.
--   Say what have to be addressed to accept the code (prioritise).
--   Respond to the comments.
+- Automated everything you can.
+- Submit small amounts of code.
+- Describe the code review (i choose this and this because ....).
+- Respond as soon as possible (the coder is multitasking or blocked).
+- The reviewer has a list of problems to check.
+- Put the comments in context.
+- Be constructive.
+- Be specific.
+- Say what have to be addressed to accept the code (prioritise).
+- Respond to the comments.
 
 I like very much the final phrase of Trisha, something like: the aim is to put code in production, not to show others how smart whe are as programmers.
 
@@ -96,6 +96,6 @@ We are definitely narcissistic people.
 
 Here you have the links which I fully recommend, check it out:
 
-1.  [The book.](https://leanpub.com/whattolookforinacodereview)
-2.  [The video.](https://youtu.be/jXi8h44cbQA)
-3.  [The complete series of talks.](https://sc-london.com/videos)
+1. [The book.](https://leanpub.com/whattolookforinacodereview)
+2. [The video.](https://youtu.be/jXi8h44cbQA)
+3. [The complete series of talks.](https://sc-london.com/videos)

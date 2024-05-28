@@ -8,13 +8,16 @@
 - It can help us to choose an appropriate data structure or algorithm to resolve a problem efficiently.
 
 Important concepts:
+
 - The growth is with respect to the input.
 - Constants are dropped.
 - We usually take into account the worst case scenario.
 
 ### O(n)
+
 First we can look for loops in the function to know the complexity.
 The relation between the input and the execution time is linear in that case. If the size of the input is 2 times bigger, then the time complexity is 2 times bigger.
+
 ```typescript
 function sum(numbers: []): number {
     let sum = 0;
@@ -24,9 +27,10 @@ function sum(numbers: []): number {
     return sum;
 }
 ```
+
 - If the for loop of this function is executed 2 times, the complexity would be still O(n) and not O(2n) because we categorize the algorithm based on the input. So the constants (2) are dropped because they eventually become irrelevant.
 I want to know if the algorithm is going to crash my computer, not the exact time it is going to take to complete the task.
-- If we return from within the loop because some condition is met, the complexity would be still O(n) because we consider worst case scenario and not let's say O(n-2) because the condition is met in the third to last element. 
+- If we return from within the loop because some condition is met, the complexity would be still O(n) because we consider worst case scenario and not let's say O(n-2) because the condition is met in the third to last element.
 
 ### Common complexities
 
@@ -39,13 +43,17 @@ I want to know if the algorithm is going to crash my computer, not the exact tim
 - O(n!): Cannot run on traditional computer!
 
 ### O(logn)
+
 See Binary search trees
 
 ### O(nlogn)
+
 See Quicksort
 
 ### O(n^2)
+
 Not that the function makes sense but it illustrates N square complexity.
+
 ```typescript
 function sum(numbers: []): number {
     let sum = 0;
@@ -59,7 +67,9 @@ function sum(numbers: []): number {
 ```
 
 ### O(n^2)
+
 This is like multiplying matrices
+
 ```typescript
 function sum(numbers: []): number {
     let sum = 0;
@@ -77,6 +87,7 @@ function sum(numbers: []): number {
 ## Data structure: Array
 
 A fixed size, contiguous memory chunk. We can perform a few operations:
+
 - Getting a specific index: multiplying the offset by the size (usually in bytes) of the elements. _O(1)_
 - Insertion at specific index: set an element
 - Deletion at specific index: it depends on how the program interpret it, it could be by setting a 0
@@ -138,7 +149,7 @@ export default function bs_list(haystack: number[], needle: number): boolean {
 
 _When given two crystal balls that will break if dropped from a high enough distance, determine the exact spot in which it will break in the most optimized way._
 
-We can represent the balls breaking as an array of n elements (booleans or numbers) 
+We can represent the balls breaking as an array of n elements (booleans or numbers)
 meaning that starting at a given position (the first true or 1), the ball will break.
 
 ```typescript
@@ -146,14 +157,14 @@ const ball_breaks = [0, 0, 0, 0, 0, 1, 1, 1, 1]
 ```
 
 If we do a linear search, the complexity for each search will be O(n): once we
-have found the first 1, we need to start over from the very beginning with the 
+have found the first 1, we need to start over from the very beginning with the
 second ball.
 
 So instead of linearly search (one element per loop, worst case is looping through
-the whole array) or binary searching (half of the elements of the previous loop, 
-worst case we loop over the half of the elements in the array) we can jump sqrt(n) 
-elements per loop until we find the ball broken, then we start over from the last 
-position we know the balls were not broken: we avoid linear searching from the 
+the whole array) or binary searching (half of the elements of the previous loop,
+worst case we loop over the half of the elements in the array) we can jump sqrt(n)
+elements per loop until we find the ball broken, then we start over from the last
+position we know the balls were not broken: we avoid linear searching from the
 beginning each time. So it is much more efficient.
 
 O(sqrt(n))
@@ -207,13 +218,14 @@ export default function bubble_sort(arr: number[]): void {
 ## Sort: Linked list
 
 A simple array cannot:
+
 - Delete an element
 - Insert new elements
 - Grow
 
 This is why in here `const a = []`, "a" is not an array as we can push, pop, etc.
 
-Complexity of deletion or insertion is constant O(1) given the node, otherwise 
+Complexity of deletion or insertion is constant O(1) given the node, otherwise
 we have to add the time of the traversal of the list.
 
 ```typescript
@@ -371,10 +383,11 @@ function sum(n: number): number {
     return n + sum(n - 1);
 }
 ```
+
 This is the stack trace calling this recursive function with 3 as argument:
 
 | Return address | Return value | Arguments |
 | -------------  | ------------- | ---------|
-| sum(3)         | 3 + *3*       | 3        |
-| sum(2)         | 2 + *1*       | 2        |
-| sum(1)         | *1*           | 1        |
+| sum(3)         | 3 + _3_       | 3        |
+| sum(2)         | 2 + _1_       | 2        |
+| sum(1)         | _1_           | 1        |

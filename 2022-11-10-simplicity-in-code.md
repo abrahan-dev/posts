@@ -32,22 +32,23 @@ Simplicity is likely to be achieved with a combination of ideas from various par
 
 ## Where is my function?
 
-I am not an expert FP programmer, just an _aficionado_, but given the amount of work that OOP code need and the cost per bug, I'd say that classes are not efficient tools by design. With FP the cost per bug can be reduced at a price: the granularity of the system can be overwhelming. How do we write our functions and organise them is key.
+I am not an expert FP programmer, just an _aficionado_, but given the amount of work that OOP code need and the cost per bug, I'd say that classes are not efficient tools by design. With FP the cost per bug can be reduced at a price: the granularity of the system can be overwhelming. How do we write our functions and organize them is key.
 
 ## Conclusion
 
-How do we update our mental models to accomodate simplicity?: Think first data and functions, then classes for invariants.
+How do we update our mental models to accommodate simplicity?: Think first data and functions, then classes for invariants.
 
 Let me digress here. We have a very few things to do with code, and we do it again and again:
+
 - assigning a variable
 - calculating something
 - evaluating a condition
 - looping over a collection
 - generate a side effect
 
-As stated in the great book "The case against reality" by Donald Hoffman, _evolution optimises for fitness, not for truth_. Maybe programmers also optimise for something that is just an interface, not for discovering the truth underneath the abstraction. We depend heavily on space (computational structures repetition) and time (loops/recursion). 
+As stated in the great book "The case against reality" by Donald Hoffman, _evolution optimizes for fitness, not for truth_. Maybe programmers also optimize for something that is just an interface, not for discovering the truth underneath the abstraction. We depend heavily on space (computational structures repetition) and time (loops/recursion).
 
-I think true simplicity will come whenever we get rid of those (space and time). There is A LOT of repetition in every code base.  We are always using the same code-phrases to achieve the same results like homogeneous transformations of inputs into outputs or performing side-effects. 
+I think true simplicity will come whenever we get rid of those (space and time). There is A LOT of repetition in every code base.  We are always using the same code-phrases to achieve the same results like homogeneous transformations of inputs into outputs or performing side-effects.
 
 We spend a lot of time iterating over collections of data. What if we could just update every element of the collection in a single computational unit of time without any iteration at all? In that case we would accept that space and time are indeed beautiful abstractions, not reality.
 

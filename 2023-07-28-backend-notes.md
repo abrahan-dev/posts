@@ -103,13 +103,14 @@ Once you have a virtual machine, you need to install an operating system on it. 
 There are a few kinds of operating systems we can use to serve our applications:
 
 - Windows
-    - Windows server
+  - Windows server
 - Unix
-    - Solaris
-    - Linux: Ubuntu, Debian, Red Hat, Fedora, CentOS, Arch Linux, etc.
-    - BSD: FreeBSD -> macOS
+  - Solaris
+  - Linux: Ubuntu, Debian, Red Hat, Fedora, CentOS, Arch Linux, etc.
+  - BSD: FreeBSD -> macOS
 
 Unix systems are made of three parts:
+
 - Shell: the interface between the user and the kernel
 - Kernel: the core of the operating system
 - Hardware: the physical machine
@@ -127,6 +128,7 @@ We prefer to hash with salt. Salt is a random data that is used as an additional
 The golden standard now is SHA-256. It is a cryptographic hash function that takes an input of any length and returns a 256-bit fixed-length hash value.
 
 If we want to hash a file, we can use the following command:
+
 ```bash
 openssl sha256 file.txt
 ```
@@ -134,9 +136,11 @@ openssl sha256 file.txt
 ssh uses public-key cryptography. It is a cryptographic system that uses pairs of keys: public keys which may be disseminated widely, and private keys which are known only to the owner. The generation of such keys depends on cryptographic algorithms based on mathematical problems to produce one-way functions. Effective security requires keeping the private key private; the public key can be openly distributed without compromising security.
 
 How to access the server:
+
 ```bash
 ssh -i ~/.ssh/id_rsa.pub user@ip
 ```
+
 The first connection is made with the user `root`, not a good idea. Check below.
 
 You can add your key to the keychain so you don't have to type your password every time you connect to the server.
@@ -150,6 +154,7 @@ Host *
 ```
 
 And add your key to the keychain (the flag is only for macOS):
+
 ```bash
 # we may need to start the ssh-agent before
 eval `ssh-agent -s`
@@ -158,6 +163,7 @@ ssh-add --apple-use-keychain ~/.ssh/id_rsa
 ```
 
 From now on, you can connect to the server with:
+
 ```bash
 ssh user@ip
 # alternatively you can use the -i flag to specify the path to the key
@@ -168,8 +174,8 @@ ssh user@ip
 How the internet works:
 
 - It is built on cooperation and rules: We agree on standards and protocols.
-- A simple diagram: 
-    - Computer -> Network Card -> Router -> ISP -> Tier 1 ISP (Backbones) -> Datacenter -> Server cluster -> Load balancer -> Server
+- A simple diagram:
+  - Computer -> Network Card -> Router -> ISP -> Tier 1 ISP (Backbones) -> Datacenter -> Server cluster -> Load balancer -> Server
 - The internet is a network of networks
 - An intranet is a private network
 - LAN is a local area network (no latency)
@@ -178,14 +184,19 @@ How the internet works:
 - IP address is a unique identifier for a computer on a network, there are two versions: IPv4 and IPv6
 
 How to check the status of a network host:
+
 ```bash
 ping google.com
 ```
+
 How to follow the path of a request:
+
 ```bash
 traceroute google.com
 ```
+
 How to show the network status:
+
 ```bash
 netstat -lt | less
 ```
@@ -198,6 +209,7 @@ TCP/UDP:
 - Packet is a small amount of data transmitted over a network
 
 The differences between TCP and UDP:
+
 - TCP is connection-oriented (handshake), UDP is connectionless
 - TCP is reliable (verifies data get its destination), UDP is unreliable
 - TCP is ordered, UDP is unordered
@@ -212,15 +224,18 @@ DNS/Nameserver:
 The computer talks to the nameserver to get the IP address of the domain name I want to access.
 
 DNS records:
+
 - A record: maps a domain name to an IP address
 - CNAME record: maps a domain name to another domain name
 
 We can look up the nameservers for a domain name with the following command:
+
 ```bash
 nslookup google.com
 ```
 
 We can look up the DNS records of a domain name with the following command:
+
 ```bash
 dig google.com
 ```
@@ -243,12 +258,14 @@ Url means uniform resource locator. It is a reference to a web resource that spe
 Once you get a server and you can ssh into it, it is time to configure it. For this matter my server has Ubuntu 22 LTS installed.
 
 First we upgrade and update the server:
+
 ```bash
 apt update
 apt upgrade
 ```
 
 Then we shut down and restart the server:
+
 ```bash
 shutdown -r now
 ```
@@ -270,6 +287,7 @@ sudo cat /var/log/auth.log
 ```
 
 Once we have the new user, we can disable the root access:
+
 - We create a file .ssh/authorized_keys in the new user home directory.
 - We copy the public key of the user into the file.
 - We exit the server and try to connect with the new user.
@@ -287,29 +305,35 @@ Nginx (engine-x) is a web server write in C that can also be used as a reverse p
 A reverse proxy is a server that sits in front of web servers and forwards client requests to those web servers. Reverse proxies are typically implemented to help increase security, performance, and reliability.
 
 We need first to instal nginx in our server:
-```bash 
+
+```bash
 sudo apt install nginx
 sudo service nginx start
 ```
+
 If we go to the ip address of our server, we should see the nginx welcome page.
 
 We can check out the nginx default site config file:
+
 ```bash
 cat /etc/nginx/sites-available/default
 ```
 
 Now we can install nodejs LTS version in our server using [nodesource](https://github.com/nodesource/distributions):
+
 ```bash
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
 sudo apt-get install -y nodejs
 ```
 
 Now we change the ownership of the `/var/www/` directory to the new user so we do not need to sudo every time:
+
 ```bash
 sudo chown -R $USER:$USER /var/www
 ```
 
 Then we create a new directory for our app, we cd into it, initialize a new git repository and initialize a new npm project:
+
 ```bash
 mkdir /var/www/app
 cd /var/www/app
@@ -318,6 +342,7 @@ npm init
 ```
 
 We create a new file `app.js` with a basic nodejs server using http package:
+
 ```js
 const http = require('http');
 
@@ -351,10 +376,12 @@ server {
   }
 }
 ```
+
 We replace example.com with our domain name.  
 [::]:80 is the ipv6 localhost address.
 
 We can check if the nginx config is correct with:
+
 ```bash
 sudo nginx -t
 ```
@@ -364,7 +391,9 @@ In that case we still need to point nginx to our new virtual server.
 ```bash
 sudo vim /etc/nginx/nginx.conf
 ```
+
 And include the new virtual server:
+
 ```nginx
 ##
 # Virtual Host Configs
@@ -375,6 +404,7 @@ include /etc/nginx/sites-enabled/app; #we modify this line
 ```
 
 If you need to redirect with nginx you can go like this:
+
 ```nginx
 server {
   location /about {
@@ -384,21 +414,25 @@ server {
 ```
 
 If you want to gzip using nginx you can edit the file /etc/nginx/nginx.conf and add the following lines:
+
 ```nginx
 gzip on;
 ```
 
 We test again the nginx config:
+
 ```bash
 sudo nginx -t
 ```
 
 And if the config is ok we restart nginx:
+
 ```bash
 sudo service nginx restart
 ```
 
 And we run our nodejs server:
+
 ```bash
 node app.js
 ```
@@ -410,6 +444,7 @@ sudo npm install -g pm2
 ```
 
 And run our nodejs server with pm2:
+
 ```bash
 # we can add the flat --watch so that pm2 restarts the server when we change the code
 pm2 start app.js --watch
@@ -420,6 +455,7 @@ pm2 restart app
 ```
 
 If we restart the server we want our application to run automatically. For that we need to save the pm2 processes and run them on startup:
+
 ```bash
 pm2 save
 pm2 startup
@@ -439,7 +475,9 @@ At this point we need to create a repository for our application. We can use git
 # create a config file in the .ssh directory without sudo ⚠️
 vim ~/.ssh/config
 ```
+
 Then we map github.com to our ssh key within this file (assuming the key is named gh_key):
+
 ```bash
 Host github.com
   Hostname github.com
@@ -447,11 +485,13 @@ Host github.com
 ```
 
 Now we can push the code to the repository:
+
 ```bash
 git push -u origin main
 ```
 
 And then clone it into your local machine:
+
 ```bash
 git clone git@github.com:github-account-name/repo-name.git
 ```
@@ -461,6 +501,7 @@ git clone git@github.com:github-account-name/repo-name.git
 The moment a server is connected to the internet, it is under attack. We need to secure it.
 
 Check the auth.log to see who is trying to connect to the server:
+
 ```bash
 cat /var/log/auth.log
 ```
@@ -478,11 +519,13 @@ A few points to consider:
 A port is a communication endpoint. It is a number between 0 and 65535. They maps to specific processes or network services running on a computer.
 
 See well known (reserved) ports:
+
 ```bash
 less /etc/services
 ```
 
 We can see the open ports of a server using nmap:
+
 ```bash
 sudo apt install nmap
 # the flag -sV is for extra information
@@ -490,6 +533,7 @@ nmap -sV <your server ip>
 ```
 
 In that case, if we are running our app in port 3000 we should see something like this:
+
 ```
 PORT     STATE    SERVICE
 22/tcp   open     ssh
@@ -498,6 +542,7 @@ PORT     STATE    SERVICE
 ```
 
 But we already have nginx to serve our application in port 80 so we do not need to open port 3000 to the public. We can close it using a firewall like ufw:
+
 ```bash
 sudo ufw deny 3000
 ```
@@ -505,6 +550,7 @@ sudo ufw deny 3000
 The difference between ufw "deny" and ufw "reject" is that "deny" will silently reject you, while "reject" sends messages back.
 
 We can just allow ssh and http:
+
 ```bash
 sudo ufw status # should output inactive
 sudo ufw allow ssh
@@ -513,6 +559,7 @@ sudo ufw enable
 ```
 
 If we execute status again, we should see something like this:
+
 ```bash
 To                         Action      From
 --                         ------      ----
@@ -572,6 +619,7 @@ npm install
 ```
 
 The we can create a cron that executes that script every 2 minutes:
+
 ```bash
 # edit the crontab file
 crontab -e
@@ -582,24 +630,26 @@ crontab -e
 You can go to [crontab guru](https://crontab.guru/) to see how to set up the cron.
 
 We should set the appropiate permissions to the script:
+
 ```bash
 chmod 700 github.sh
 ```
 
 How do we know if a cronjob is running? We can check the cron log:
+
 ```bash
 cat /var/log/syslog | grep CRON
 # or maybe using tail
 tail -f /var/log/syslog
 ```
 
-:warning: You may need to configure keychain on ubuntu if you are connecting to the git server using a pair of public/private keys and the ssh-agent. 
+:warning: You may need to configure keychain on ubuntu if you are connecting to the git server using a pair of public/private keys and the ssh-agent.
 
 The ssh config `UseKeyChain yes` will not work on ubuntu, only on MacOs in the dev environment. You can install and configure keychain package and do not forget to add `source $HOME/.keychain/${HOSTNAME}-sh` into your cron bash script at the beginning otherwise the cron will run without the appropriate environment and it will not find your ssh keys.
 
 ### Create a subdomain
 
-First we can create a new A record for the subdomain in the DNS records of our domain name. 
+First we can create a new A record for the subdomain in the DNS records of our domain name.
 
 Then we can create a new virtual server in nginx:
 
@@ -725,6 +775,7 @@ We can use a database to store data. We can use a relational database like MySQL
 For the purpose of this post we will use SQLite. It is a relational database management system contained in a C library. In contrast to many other database management systems, SQLite is not a client–server database engine. Rather, it is embedded into the end program.
 
 An example of initialization with SQLite:
+
 ```js
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database(':memory:');
@@ -756,6 +807,7 @@ function shutdownDb() {
 HTTPS is a protocol for secure communication over a computer network which is widely used on the Internet. HTTPS consists of communication over Hypertext Transfer Protocol (HTTP) within a connection encrypted by Transport Layer Security (TLS).
 
 Some common headers we send with HTTPS requests are:
+
 - Content-Type: application/json
 - Content-Length: 123
 - User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36
@@ -766,6 +818,7 @@ Some common headers we send with HTTPS requests are:
 - X-: Is a custom header
 
 The response typically has a status code and a body:
+
 - Status code: 200, 404, 500, etc.
 - Body: HTML, JSON, etc.
 
@@ -776,6 +829,7 @@ With https we encrypt the data we send over the network. We can use [certbot](ht
 The instructions there are pretty straightforward and the package automatically modify the nginx config file to use the certificate and redirect http(80) connection to https (443).
 
 But we still need to open the port 443 using our firewall:
+
 ```bash
 sudo ufw allow https
 ```
@@ -785,12 +839,14 @@ sudo ufw allow https
 Lastly we can add support to http2.
 
 We just need to add `http2` to the listen directive in the nginx config file:
+
 ```nginx
 listen [::]:443 http2 ssl ipv6only=on; # managed by Certbot
 listen 443 http2 ssl; # managed by Certbot
 ```
 
 Then we check if the config is ok and restart nginx:
+
 ```bash
 sudo nginx -t
 sudo service nginx restart
@@ -807,6 +863,7 @@ We can use containers to deploy our microservices. A container is a standard uni
 Docker is a very well known solution for containerization.
 
 We need to create a docker file in the root of our project:
+
 ```docker
 FROM node:19-alpine3.16
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
@@ -820,11 +877,13 @@ CMD [ "node", "app.js" ]
 ```
 
 We install docker:
+
 ```bash
 sudo apt install docker.io
 ```
 
 Then we can build the image:
+
 ```bash
 docker build -t image-name .
 # we can see the images with
@@ -832,11 +891,13 @@ docker images
 ```
 
 Then we can run the container:
+
 ```bash
 docker run -d -p 3000:3000 image-name
 ```
 
 We can create more containers changing the port.
+
 ```bash
 docker run -d -p 3001:3000 image-name
 docker run -d -p 3002:3000 image-name
